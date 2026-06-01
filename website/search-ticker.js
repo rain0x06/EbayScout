@@ -46,8 +46,12 @@ export function SearchTicker() {
   const loopWidthRef = useRef(0);
   const pausedRef = useRef(false);
   const frameRef = useRef(0);
+  const lastFrameTimeRef = useRef(0);
 
   useEffect(() => {
+    const pixelsPerFrame = 0.6;
+    const targetFrameMs = 1000 / 60;
+
     const updateLoopWidth = () => {
       loopWidthRef.current = firstSetRef.current?.scrollWidth ?? 0;
     };
@@ -58,14 +62,18 @@ export function SearchTicker() {
       resizeObserver.observe(firstSetRef.current);
     }
 
-    const tick = () => {
+    const tick = (timestamp) => {
       if (!pausedRef.current && trackRef.current && loopWidthRef.current > 0) {
-        positionRef.current += 0.6;
+        const elapsed = lastFrameTimeRef.current
+          ? Math.min(timestamp - lastFrameTimeRef.current, targetFrameMs)
+          : targetFrameMs;
+        positionRef.current += pixelsPerFrame * (elapsed / targetFrameMs);
         if (positionRef.current >= loopWidthRef.current) {
           positionRef.current = 0;
         }
         trackRef.current.style.transform = `translate3d(${-positionRef.current}px, 0, 0)`;
       }
+      lastFrameTimeRef.current = timestamp;
       frameRef.current = requestAnimationFrame(tick);
     };
 
@@ -88,11 +96,11 @@ export function SearchTicker() {
   const firstLoop = LOOPING_SUGGESTIONS.slice(0, SEARCH_SUGGESTIONS.length);
   const secondLoop = LOOPING_SUGGESTIONS.slice(SEARCH_SUGGESTIONS.length);
 
-  const scan = () => {
-    const builder = document.querySelector("#configure");
-    const input = document.querySelector("#queryInput");
-    builder?.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => input?.focus(), 420);
+  const search = () => {
+    const discordSetup = document.querySelector("#discord");
+    const clientIdInput = document.querySelector("#clientId");
+    discordSetup?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => clientIdInput?.focus(), 420);
   };
 
   return React.createElement(
@@ -127,7 +135,7 @@ export function SearchTicker() {
           React.createElement(SuggestionSet, { suggestions: secondLoop }),
         ),
       ),
-      React.createElement("button", { className: "search-ticker-button", type: "button", onClick: scan }, "Scan"),
+      React.createElement("button", { className: "search-ticker-button", type: "button", onClick: search }, "Search"),
     ),
   );
 }

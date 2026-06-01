@@ -71,6 +71,8 @@ img {
   z-index: 20;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3.5rem);
   background: rgba(6, 9, 15, 0.84);
   border-bottom: 1px solid var(--line);
@@ -78,6 +80,7 @@ img {
 }
 
 .brand,
+.header-cta,
 .button,
 .inline-link {
   text-decoration: none;
@@ -97,6 +100,27 @@ img {
   height: 2.55rem;
   object-fit: contain;
   filter: drop-shadow(0 0 16px rgba(216, 235, 255, 0.18));
+}
+
+.header-cta {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(232, 244, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.68rem 1.05rem;
+  background: rgba(54, 101, 243, 0.18);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 820;
+  box-shadow: 0 0 28px rgba(54, 101, 243, 0.12);
+}
+
+.header-cta:hover,
+.header-cta:focus-visible {
+  border-color: rgba(216, 235, 255, 0.38);
+  background: rgba(54, 101, 243, 0.28);
 }
 
 .section-band {

@@ -7,6 +7,7 @@ Files:
 - index.html
 - styles.css
 - app.js
+- search-ticker.js
 - assets/alert-preview.png
 - assets/hero-background.png
 - assets/zero.svg
@@ -16,7 +17,7 @@ Example nginx site root:
 
 Example deployment commands on a VPS:
 mkdir -p /var/www/ebay-scout
-cp index.html styles.css app.js /var/www/ebay-scout/
+cp index.html styles.css app.js search-ticker.js /var/www/ebay-scout/
 cp -r assets /var/www/ebay-scout/
 
 Point a public domain or subdomain at the VPS and serve this directory over HTTPS.

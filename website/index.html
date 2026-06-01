@@ -8,7 +8,7 @@
       name="description"
       content="A configurable eBay listing alert monitor for self-hosted Discord notifications."
     >
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260531-2325">
   </head>
   <body>
     <div class="page-shell">
@@ -32,6 +32,7 @@
                 Track the eBay searches you care about, filter the noise, and send
                 polished listing alerts to your Discord server the moment something new appears.
               </p>
+              <div id="searchTickerRoot" class="search-ticker-mount"></div>
               <div class="hero-actions">
                 <a class="button button-primary" href="#configure">Configure searches</a>
                 <a class="button button-secondary" href="#discord">Add to Discord</a>
@@ -162,7 +163,7 @@
             <h2>Invite the bot. Keep secrets server-side.</h2>
             <p>
               Use your Discord application's public Application ID to generate an
-              OAuth invite for your server.
+              invite to your server.
             </p>
             <a class="inline-link" href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer">
               Open Discord Developer Portal
@@ -184,13 +185,8 @@
               </p>
               <input id="clientId" type="text" inputmode="numeric" placeholder="123456789012345678" aria-describedby="clientIdHelp">
             </div>
-            <p class="field-help">
-              The invite uses Discord's Send Messages permission value
-              <strong>2048</strong> automatically.
-            </p>
-
             <a class="button button-primary disabled" id="inviteLink" href="#" aria-disabled="true">Add to Discord</a>
-            <p class="form-note" id="inviteHint">Enter a valid client ID to generate the invite link.</p>
+            <p class="form-note" id="inviteHint" aria-live="polite"></p>
           </div>
         </section>
 
@@ -258,6 +254,7 @@
       </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=20260531-2325"></script>
+    <script type="module" src="search-ticker.js?v=20260531-2325"></script>
   </body>
 </html>

@@ -108,7 +108,7 @@ function updateInviteLink() {
     inviteLink.href = "#";
     inviteLink.classList.add("disabled");
     inviteLink.setAttribute("aria-disabled", "true");
-    inviteHint.textContent = "Enter a valid Discord Application ID to generate the invite link.";
+    inviteHint.textContent = "";
     return;
   }
 

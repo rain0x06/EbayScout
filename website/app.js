@@ -93,7 +93,7 @@ function downloadJson() {
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "listing-alert-monitor.sample-config.json";
+  anchor.download = "ebay-scout.sample-config.json";
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
@@ -109,7 +109,7 @@ function updateInviteLink() {
     inviteLink.href = "#";
     inviteLink.classList.add("disabled");
     inviteLink.setAttribute("aria-disabled", "true");
-    inviteHint.textContent = "Enter a valid numeric Discord application client ID.";
+    inviteHint.textContent = "Paste the numeric Application ID from Discord Developer Portal > General Information. Keep permissions at 2048 unless the bot needs more.";
     return;
   }
 

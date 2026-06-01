@@ -440,6 +440,51 @@ label {
   font-weight: 760;
 }
 
+.field-card {
+  display: grid;
+  gap: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.field-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.field-header label {
+  display: block;
+}
+
+.help-link {
+  color: var(--green-soft);
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-align: right;
+  text-decoration: none;
+}
+
+.help-link:hover,
+.help-link:focus-visible {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.field-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.field-help strong {
+  color: var(--text);
+}
+
 input,
 select {
   width: 100%;
@@ -785,6 +830,16 @@ select:focus {
   .input-row,
   .volume-row {
     grid-template-columns: 1fr;
+  }
+
+  .field-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .help-link {
+    text-align: left;
   }
 
   .proof-grid article,

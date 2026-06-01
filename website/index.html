@@ -162,18 +162,45 @@
             <p class="kicker">Discord setup</p>
             <h2>Invite the bot. Keep secrets server-side.</h2>
             <p>
-              Use your public Discord application client ID to generate an OAuth
-              invite. Bot tokens, webhook URLs, client secrets, and eBay API
+              Use your Discord application's public Application ID to generate an
+              OAuth invite. Bot tokens, webhook URLs, client secrets, and eBay API
               credentials belong in your private server runtime only.
             </p>
+            <a class="inline-link" href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer">
+              Open Discord Developer Portal
+            </a>
           </div>
 
           <div class="discord-panel">
-            <label for="clientId">Discord application client ID</label>
-            <input id="clientId" type="text" inputmode="numeric" placeholder="123456789012345678">
+            <div class="field-card">
+              <div class="field-header">
+                <label for="clientId">Discord application client ID</label>
+                <a class="help-link" href="https://discord.com/developers/applications" target="_blank" rel="noopener noreferrer">
+                  Open official Discord portal
+                </a>
+              </div>
+              <p class="field-help" id="clientIdHelp">
+                In Discord Developer Portal, create or open your application, then copy
+                <strong>General Information &gt; Application ID</strong>. That numeric
+                Application ID is the client ID used for the invite link.
+              </p>
+              <input id="clientId" type="text" inputmode="numeric" placeholder="123456789012345678" aria-describedby="clientIdHelp">
+            </div>
 
-            <label for="permissions">Permissions integer</label>
-            <input id="permissions" type="text" inputmode="numeric" value="2048">
+            <div class="field-card">
+              <div class="field-header">
+                <label for="permissions">Permissions integer</label>
+                <a class="help-link" href="https://discord.com/developers/docs/topics/permissions" target="_blank" rel="noopener noreferrer">
+                  Read Discord permissions docs
+                </a>
+              </div>
+              <p class="field-help" id="permissionsHelp">
+                Discord permissions are encoded as a number. Leave this at
+                <strong>2048</strong> for Send Messages unless your bot needs more
+                access.
+              </p>
+              <input id="permissions" type="text" inputmode="numeric" value="2048" aria-describedby="permissionsHelp">
+            </div>
 
             <a class="button button-primary disabled" id="inviteLink" href="#" aria-disabled="true">Add to Discord</a>
             <p class="form-note" id="inviteHint">Enter a valid client ID to generate the invite link.</p>

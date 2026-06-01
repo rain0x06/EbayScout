@@ -4,10 +4,9 @@ seen_listings.json
 AGENT_LOG.md
 
 # Private scanner/runtime source
-config.example.json
-ebay_devkit_scout.py
-ebay_devkit_scout.ps1
-test_mock_cycle.ps1
+config*.json
+*.py
+*.ps1
 
 # Duplicate/local working copies that may contain credentials
 ebayscout/

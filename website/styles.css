@@ -429,19 +429,19 @@ h3 {
 }
 
 .market-strip span:nth-child(1) {
-  background: var(--green);
+  background: #e53238;
 }
 
 .market-strip span:nth-child(2) {
-  background: var(--cyan);
+  background: #0064d2;
 }
 
 .market-strip span:nth-child(3) {
-  background: var(--blue);
+  background: #f5af02;
 }
 
 .market-strip span:nth-child(4) {
-  background: var(--amber);
+  background: #86b817;
 }
 
 .proof {

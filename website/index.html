@@ -17,13 +17,6 @@
           <img class="brand-logo" src="assets/zero.svg" alt="" aria-hidden="true">
           <span>eBay Scout</span>
         </a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="#configure">Configure</a>
-          <a href="#discord">Discord</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#reliability">Reliability</a>
-        </nav>
-        <a class="nav-cta" href="#discord">Add bot</a>
       </header>
 
       <main id="top">
@@ -85,8 +78,8 @@
         <section class="configure section-band" id="configure">
           <div class="builder-card">
             <div class="builder-top">
-              <span>Step 01</span>
-              <strong>Search builder</strong>
+              <span>Search workspace</span>
+              <strong>eBay query configuration</strong>
             </div>
 
             <form class="query-form" id="queryForm">
@@ -97,7 +90,13 @@
               </div>
             </form>
 
-            <div class="chips" id="queryList" aria-live="polite"></div>
+            <div class="query-stack">
+              <div class="query-stack-head">
+                <span>Active searches</span>
+                <small>Monitor up to 24 queries</small>
+              </div>
+              <div class="chips" id="queryList" aria-live="polite"></div>
+            </div>
 
             <div class="settings-grid">
               <label>
@@ -186,21 +185,10 @@
               </p>
               <input id="clientId" type="text" inputmode="numeric" placeholder="123456789012345678" aria-describedby="clientIdHelp">
             </div>
-
-            <div class="field-card">
-              <div class="field-header">
-                <label for="permissions">Permissions integer</label>
-                <a class="help-link" href="https://discord.com/developers/docs/topics/permissions" target="_blank" rel="noopener noreferrer">
-                  Read Discord permissions docs
-                </a>
-              </div>
-              <p class="field-help" id="permissionsHelp">
-                Discord permissions are encoded as a number. Leave this at
-                <strong>2048</strong> for Send Messages unless your bot needs more
-                access.
-              </p>
-              <input id="permissions" type="text" inputmode="numeric" value="2048" aria-describedby="permissionsHelp">
-            </div>
+            <p class="field-help">
+              The invite uses Discord's Send Messages permission value
+              <strong>2048</strong> automatically.
+            </p>
 
             <a class="button button-primary disabled" id="inviteLink" href="#" aria-disabled="true">Add to Discord</a>
             <p class="form-note" id="inviteHint">Enter a valid client ID to generate the invite link.</p>
@@ -215,7 +203,7 @@
         <section class="data section-band" id="privacy">
           <div class="section-heading centered">
             <p class="kicker">Privacy by shape</p>
-            <h2>Useful listing context, without account baggage.</h2>
+            <h2>Listing context without account baggage.</h2>
             <p>
               The public site is static and does not collect private runtime credentials.
               Alerts are shaped around listing context instead of user account records.
@@ -272,26 +260,12 @@
             </div>
           </div>
         </section>
-
-        <section class="final-cta section-band">
-          <div>
-            <p class="kicker">Start watching</p>
-            <h2>Host the site. Invite the bot. Run your monitor.</h2>
-            <p>
-              Deploy the static site, configure your bot, and start tracking the
-              searches that matter to your collection, shop, or community.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#discord">Generate invite</a>
-              <a class="button button-secondary" href="#configure">Export config</a>
-            </div>
-          </div>
-          <footer class="footer">
-            <span>eBay Scout</span>
-            <span>eBay Scout is an independent tool for user-configured eBay listing monitoring. Not endorsed by or affiliated with eBay.</span>
-          </footer>
-        </section>
       </main>
+
+      <footer class="footer section-band">
+        <span>eBay Scout</span>
+        <span>eBay Scout is an independent tool for user-configured eBay listing monitoring. Not endorsed by or affiliated with eBay.</span>
+      </footer>
     </div>
 
     <script src="app.js"></script>

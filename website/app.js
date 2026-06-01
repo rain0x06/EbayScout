@@ -6,11 +6,11 @@ const buyingOption = document.querySelector("#buyingOption");
 const pollSeconds = document.querySelector("#pollSeconds");
 const downloadConfig = document.querySelector("#downloadConfig");
 const clientId = document.querySelector("#clientId");
-const permissions = document.querySelector("#permissions");
 const inviteLink = document.querySelector("#inviteLink");
 const inviteHint = document.querySelector("#inviteHint");
 const previewQuery = document.querySelector("#previewQuery");
 const previewBuying = document.querySelector("#previewBuying");
+const discordPermissions = "2048";
 
 let queries = loadQueries();
 
@@ -42,7 +42,7 @@ function renderQueries() {
     const remove = document.createElement("button");
     remove.type = "button";
     remove.setAttribute("aria-label", `Remove ${query}`);
-    remove.textContent = "x";
+    remove.textContent = "Remove";
     remove.addEventListener("click", () => {
       queries.splice(index, 1);
       saveQueries();
@@ -102,20 +102,19 @@ function downloadJson() {
 
 function updateInviteLink() {
   const id = clientId.value.trim();
-  const perms = permissions.value.trim() || "2048";
-  const isValid = /^\d{17,22}$/.test(id) && /^\d+$/.test(perms);
+  const isValid = /^\d{17,22}$/.test(id);
 
   if (!isValid) {
     inviteLink.href = "#";
     inviteLink.classList.add("disabled");
     inviteLink.setAttribute("aria-disabled", "true");
-    inviteHint.textContent = "Paste the numeric Application ID from Discord Developer Portal > General Information. Keep permissions at 2048 unless the bot needs more.";
+    inviteHint.textContent = "Paste the numeric Application ID from Discord Developer Portal > General Information.";
     return;
   }
 
   const params = new URLSearchParams({
     client_id: id,
-    permissions: perms,
+    permissions: discordPermissions,
     integration_type: "0",
   });
   params.set("scope", "bot applications.commands");
@@ -141,7 +140,6 @@ queryForm.addEventListener("submit", (event) => {
 buyingOption.addEventListener("change", updatePreview);
 downloadConfig.addEventListener("click", downloadJson);
 clientId.addEventListener("input", updateInviteLink);
-permissions.addEventListener("input", updateInviteLink);
 
 renderQueries();
 updatePreview();

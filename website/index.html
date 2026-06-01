@@ -8,7 +8,7 @@
       name="description"
       content="A configurable eBay listing alert monitor for self-hosted Discord notifications."
     >
-    <link rel="stylesheet" href="styles.css?v=20260531-2342">
+    <link rel="stylesheet" href="styles.css?v=20260531-2359">
   </head>
   <body>
     <div class="page-shell">
@@ -23,7 +23,7 @@
       <main id="top">
         <section class="hero section-band">
           <div class="hero-media" aria-hidden="true">
-            <img src="assets/hero-background.png?v=20260531-2342" alt="">
+            <img src="assets/hero-background.png?v=20260531-2359" alt="">
           </div>
           <div class="hero-inner">
             <div class="hero-content">
@@ -72,72 +72,6 @@
           </div>
         </section>
 
-        <section class="configure section-band" id="configure">
-          <div class="builder-card">
-            <div class="builder-top">
-              <span>Search workspace</span>
-              <strong>eBay query configuration</strong>
-            </div>
-
-            <form class="query-form" id="queryForm">
-              <label for="queryInput">Search query</label>
-              <div class="input-row">
-                <input id="queryInput" name="query" type="text" value="vintage camera auction" maxlength="80">
-                <button class="button button-primary compact" type="submit">Add</button>
-              </div>
-            </form>
-
-            <div class="query-stack">
-              <div class="query-stack-head">
-                <span>Active searches</span>
-                <small>Monitor up to 24 queries</small>
-              </div>
-              <div class="chips" id="queryList" aria-live="polite"></div>
-            </div>
-
-            <div class="settings-grid">
-              <label>
-                Listing type
-                <select id="buyingOption">
-                  <option value="AUCTION">Auctions</option>
-                  <option value="FIXED_PRICE">Fixed price</option>
-                  <option value="BEST_OFFER">Best offer</option>
-                </select>
-              </label>
-              <label>
-                Poll interval
-                <select id="pollSeconds">
-                  <option value="60">Every 60 seconds</option>
-                  <option value="120">Every 2 minutes</option>
-                  <option value="300">Every 5 minutes</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="mini-preview">
-              <span>Alert preview</span>
-              <strong id="previewQuery">vintage camera auction</strong>
-              <em id="previewBuying">AUCTION</em>
-            </div>
-
-            <button class="button button-secondary" id="downloadConfig" type="button">Download sample config</button>
-          </div>
-
-          <div class="section-copy right-copy">
-            <p class="kicker">Make it yours</p>
-            <h2>Your searches, your cadence.</h2>
-            <p>
-              Configure narrow searches for time-sensitive listings, set the refresh
-              interval, and export a sample config that you can run from your own server.
-            </p>
-            <ul class="check-list">
-              <li>Search terms stay editable</li>
-              <li>Listing type is explicit</li>
-              <li>Public page exports no secrets</li>
-            </ul>
-          </div>
-        </section>
-
         <section class="alert-anatomy section-band">
           <div class="alert-copy">
             <p class="kicker">Designed for action</p>
@@ -146,7 +80,6 @@
               Every alert is tuned for fast scanning in Discord: what it is, what it
               costs, how it is being sold, and why it matched your search.
             </p>
-            <a class="inline-link" href="#configure">Build your first search</a>
           </div>
           <div class="alert-frame">
             <img src="assets/alert-preview.png" alt="Example listing alert for a vintage 35mm camera auction">
@@ -210,38 +143,6 @@
             </article>
           </div>
         </section>
-
-        <section class="volume section-band" id="reliability">
-          <div class="section-copy">
-            <p class="kicker">Reliability</p>
-            <h2>Built to run quietly in the background.</h2>
-            <p>
-              Set your refresh cadence, keep duplicate alerts out of the channel, and
-              leave the monitor running from a VPS or home server.
-            </p>
-          </div>
-          <div class="volume-card">
-            <div class="volume-row volume-head">
-              <span>Runtime feature</span>
-              <span>Purpose</span>
-              <span>Status</span>
-            </div>
-            <div class="volume-row">
-              <span>Seen listing database</span>
-              <strong>Dedupes alerts</strong>
-              <strong>Local</strong>
-            </div>
-            <div class="volume-row">
-              <span>Configurable polling</span>
-              <strong>Controls cadence</strong>
-              <strong>Editable</strong>
-            </div>
-            <div class="volume-stat">
-              <span>Typical alert path</span>
-              <strong>Search → filter → notify</strong>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer class="footer section-band">
@@ -250,7 +151,7 @@
       </footer>
     </div>
 
-    <script src="app.js?v=20260531-2342"></script>
-    <script type="module" src="search-ticker.js?v=20260531-2342"></script>
+    <script src="app.js?v=20260531-2359"></script>
+    <script type="module" src="search-ticker.js?v=20260531-2359"></script>
   </body>
 </html>

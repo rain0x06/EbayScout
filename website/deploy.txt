@@ -1,0 +1,26 @@
+eBay Scout website deployment
+
+This website is a static site. It does not require Node, Python, a database, or
+server-side secrets. Copy the files in this folder to the public web root on a VPS.
+
+Files:
+- index.html
+- styles.css
+- app.js
+- assets/alert-preview.png
+
+Example nginx site root:
+/var/www/listing-alert-monitor
+
+Example deployment commands on a VPS:
+mkdir -p /var/www/listing-alert-monitor
+cp index.html styles.css app.js /var/www/listing-alert-monitor/
+cp -r assets /var/www/listing-alert-monitor/
+
+Point a public domain or subdomain at the VPS and serve this directory over HTTPS.
+Use the public HTTPS URL anywhere a public application URL is required.
+
+Do not add Discord bot tokens, client secrets, eBay API secrets, webhook URLs,
+or production config files to this public website. The public page only accepts a
+Discord application client ID because that ID is public and is needed to generate
+the OAuth invite URL.

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eBay Scout</title>
+    <meta
+      name="description"
+      content="A configurable eBay listing alert monitor for self-hosted Discord notifications."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="eBay Scout home">
+          <img class="brand-logo" src="assets/zero.svg" alt="" aria-hidden="true">
+          <span>eBay Scout</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#configure">Configure</a>
+          <a href="#discord">Discord</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#reliability">Reliability</a>
+        </nav>
+        <a class="nav-cta" href="#discord">Add bot</a>
+      </header>
+
+      <main id="top">
+        <section class="hero section-band">
+          <div class="hero-media" aria-hidden="true">
+            <img src="assets/hero-background.png" alt="">
+          </div>
+          <div class="hero-inner">
+            <div class="hero-content">
+              <p class="kicker">Self-hosted eBay alert bot</p>
+              <h1>Never miss the next find.</h1>
+              <p class="lede">
+                Track the eBay searches you care about, filter the noise, and send
+                polished listing alerts to your Discord server the moment something new appears.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#configure">Configure searches</a>
+                <a class="button button-secondary" href="#discord">Add to Discord</a>
+              </div>
+            </div>
+            <div class="hero-showcase" aria-label="Example listing alert preview">
+              <img src="assets/alert-preview.png" alt="Example listing alert for a vintage 35mm camera auction">
+            </div>
+          </div>
+          <div class="market-strip" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </section>
+
+        <section class="proof section-band" aria-label="Product highlights">
+          <div class="section-heading">
+            <p class="kicker">Fast, focused, operator-controlled</p>
+            <h2>A cleaner way to watch eBay.</h2>
+          </div>
+          <div class="proof-grid">
+            <article>
+              <span class="tile-icon">01</span>
+              <h3>Custom searches</h3>
+              <p>Monitor the keywords, categories, and listing types that actually matter to you.</p>
+            </article>
+            <article>
+              <span class="tile-icon">02</span>
+              <h3>Clean alerts</h3>
+              <p>Cards are designed for quick decisions: title, price, condition, buying type, and matched query.</p>
+            </article>
+            <article>
+              <span class="tile-icon">03</span>
+              <h3>Discord ready</h3>
+              <p>Add your own bot to your own server and choose where listing alerts should land.</p>
+            </article>
+            <article>
+              <span class="tile-icon">04</span>
+              <h3>Self-hosted control</h3>
+              <p>Keep runtime credentials on your server instead of putting private keys on a public site.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="configure section-band" id="configure">
+          <div class="builder-card">
+            <div class="builder-top">
+              <span>Step 01</span>
+              <strong>Search builder</strong>
+            </div>
+
+            <form class="query-form" id="queryForm">
+              <label for="queryInput">Search query</label>
+              <div class="input-row">
+                <input id="queryInput" name="query" type="text" value="vintage camera auction" maxlength="80">
+                <button class="button button-primary compact" type="submit">Add</button>
+              </div>
+            </form>
+
+            <div class="chips" id="queryList" aria-live="polite"></div>
+
+            <div class="settings-grid">
+              <label>
+                Listing type
+                <select id="buyingOption">
+                  <option value="AUCTION">Auctions</option>
+                  <option value="FIXED_PRICE">Fixed price</option>
+                  <option value="BEST_OFFER">Best offer</option>
+                </select>
+              </label>
+              <label>
+                Poll interval
+                <select id="pollSeconds">
+                  <option value="60">Every 60 seconds</option>
+                  <option value="120">Every 2 minutes</option>
+                  <option value="300">Every 5 minutes</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="mini-preview">
+              <span>Alert preview</span>
+              <strong id="previewQuery">vintage camera auction</strong>
+              <em id="previewBuying">AUCTION</em>
+            </div>
+
+            <button class="button button-secondary" id="downloadConfig" type="button">Download sample config</button>
+          </div>
+
+          <div class="section-copy right-copy">
+            <p class="kicker">Make it yours</p>
+            <h2>Your searches, your cadence.</h2>
+            <p>
+              Configure narrow searches for time-sensitive listings, set the refresh
+              interval, and export a sample config that you can run from your own server.
+            </p>
+            <ul class="check-list">
+              <li>Search terms stay editable</li>
+              <li>Listing type is explicit</li>
+              <li>Public page exports no secrets</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="alert-anatomy section-band">
+          <div class="alert-copy">
+            <p class="kicker">Designed for action</p>
+            <h2>The alert is the interface.</h2>
+            <p>
+              Every alert is tuned for fast scanning in Discord: what it is, what it
+              costs, how it is being sold, and why it matched your search.
+            </p>
+            <a class="inline-link" href="#configure">Build your first search</a>
+          </div>
+          <div class="alert-frame">
+            <img src="assets/alert-preview.png" alt="Example listing alert for a vintage 35mm camera auction">
+          </div>
+        </section>
+
+        <section class="discord section-band" id="discord">
+          <div class="section-copy">
+            <p class="kicker">Discord setup</p>
+            <h2>Invite the bot. Keep secrets server-side.</h2>
+            <p>
+              Use your public Discord application client ID to generate an OAuth
+              invite. Bot tokens, webhook URLs, client secrets, and eBay API
+              credentials belong in your private server runtime only.
+            </p>
+          </div>
+
+          <div class="discord-panel">
+            <label for="clientId">Discord application client ID</label>
+            <input id="clientId" type="text" inputmode="numeric" placeholder="123456789012345678">
+
+            <label for="permissions">Permissions integer</label>
+            <input id="permissions" type="text" inputmode="numeric" value="2048">
+
+            <a class="button button-primary disabled" id="inviteLink" href="#" aria-disabled="true">Add to Discord</a>
+            <p class="form-note" id="inviteHint">Enter a valid client ID to generate the invite link.</p>
+
+            <div class="private-box">
+              <strong>Private runtime config</strong>
+              <span>Bot token, API client secret, webhook URL, and production keys stay off this site.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="data section-band" id="privacy">
+          <div class="section-heading centered">
+            <p class="kicker">Privacy by shape</p>
+            <h2>Useful listing context, without account baggage.</h2>
+            <p>
+              The public site is static and does not collect private runtime credentials.
+              Alerts are shaped around listing context instead of user account records.
+            </p>
+          </div>
+          <div class="data-grid">
+            <article>
+              <h3>No eBay sign-in</h3>
+              <p>End users do not sign in to an eBay account through this website.</p>
+            </article>
+            <article>
+              <h3>No seller profiles in previews</h3>
+              <p>Public examples avoid seller usernames, profile links, and item IDs.</p>
+            </article>
+            <article>
+              <h3>No public secrets</h3>
+              <p>The website does not collect bot tokens, webhooks, client secrets, or API keys.</p>
+            </article>
+            <article>
+              <h3>No buyer/order records</h3>
+              <p>The app does not require addresses, payment data, messages, or transaction records.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="volume section-band" id="reliability">
+          <div class="section-copy">
+            <p class="kicker">Reliability</p>
+            <h2>Built to run quietly in the background.</h2>
+            <p>
+              Set your refresh cadence, keep duplicate alerts out of the channel, and
+              leave the monitor running from a VPS or home server.
+            </p>
+          </div>
+          <div class="volume-card">
+            <div class="volume-row volume-head">
+              <span>Runtime feature</span>
+              <span>Purpose</span>
+              <span>Status</span>
+            </div>
+            <div class="volume-row">
+              <span>Seen listing database</span>
+              <strong>Dedupes alerts</strong>
+              <strong>Local</strong>
+            </div>
+            <div class="volume-row">
+              <span>Configurable polling</span>
+              <strong>Controls cadence</strong>
+              <strong>Editable</strong>
+            </div>
+            <div class="volume-stat">
+              <span>Typical alert path</span>
+              <strong>Search → filter → notify</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-cta section-band">
+          <div>
+            <p class="kicker">Start watching</p>
+            <h2>Host the site. Invite the bot. Run your monitor.</h2>
+            <p>
+              Deploy the static site, configure your bot, and start tracking the
+              searches that matter to your collection, shop, or community.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#discord">Generate invite</a>
+              <a class="button button-secondary" href="#configure">Export config</a>
+            </div>
+          </div>
+          <footer class="footer">
+            <span>eBay Scout</span>
+            <span>eBay Scout is an independent tool for user-configured eBay listing monitoring. Not endorsed by or affiliated with eBay.</span>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

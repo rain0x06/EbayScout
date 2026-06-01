@@ -1,0 +1,31 @@
+# Local credentials and runtime state
+config.json
+seen_listings.json
+AGENT_LOG.md
+
+# Private scanner/runtime source
+config.example.json
+ebay_devkit_scout.py
+ebay_devkit_scout.ps1
+test_mock_cycle.ps1
+
+# Duplicate/local working copies that may contain credentials
+ebayscout/
+
+# Python/cache output
+__pycache__/
+*.py[cod]
+
+# Codex/Serena local state
+.serena/
+
+# Application form drafts and local-only generated references
+ebay_application_growth_check_draft.txt
+application_attachment_vintage_camera_auction.png
+website/design-references/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

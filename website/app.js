@@ -108,7 +108,7 @@ function updateInviteLink() {
     inviteLink.href = "#";
     inviteLink.classList.add("disabled");
     inviteLink.setAttribute("aria-disabled", "true");
-    inviteHint.textContent = "Paste the numeric Application ID from Discord Developer Portal > General Information.";
+    inviteHint.textContent = "Enter a valid Discord Application ID to generate the invite link.";
     return;
   }
 
@@ -121,7 +121,7 @@ function updateInviteLink() {
   inviteLink.href = `https://discord.com/oauth2/authorize?${params.toString()}`;
   inviteLink.classList.remove("disabled");
   inviteLink.removeAttribute("aria-disabled");
-  inviteHint.textContent = "Invite link generated locally. No bot token or secret is sent to this site.";
+  inviteHint.textContent = "Invite link generated locally.";
 }
 
 queryForm.addEventListener("submit", (event) => {
